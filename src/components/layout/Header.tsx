@@ -13,6 +13,7 @@ import {
 import { Bell, Search, User } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils"; // Add this import for the cn utility
 
 const Header = () => {
   const [notifications, setNotifications] = useState([

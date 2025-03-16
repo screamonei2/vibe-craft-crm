@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import ClientCard from "@/components/dashboard/ClientCard";
 
 const Clients = () => {
-  // Sample data
+  // Sample data with proper status types
   const clients = [
     {
       id: "client1",
@@ -13,7 +13,7 @@ const Clients = () => {
       email: "sarah@acmecorp.com",
       phone: "+1 (555) 123-4567",
       company: "Acme Corporation",
-      status: "active",
+      status: "active" as const, // Type assertion to const
       totalValue: 125000,
     },
     {
@@ -22,7 +22,7 @@ const Clients = () => {
       email: "michael@techsolutions.com",
       phone: "+1 (555) 987-6543",
       company: "TechSolutions Inc.",
-      status: "lead",
+      status: "lead" as const, // Type assertion to const
       totalValue: 75000,
     },
     {
@@ -31,7 +31,7 @@ const Clients = () => {
       email: "lisa@innovateco.com",
       phone: "+1 (555) 456-7890",
       company: "InnovateCo",
-      status: "active",
+      status: "active" as const, // Type assertion to const
       totalValue: 95000,
     },
     {
@@ -40,7 +40,7 @@ const Clients = () => {
       email: "david@visionmedia.com",
       phone: "+1 (555) 789-0123",
       company: "Vision Media",
-      status: "active",
+      status: "active" as const, // Type assertion to const
       totalValue: 110000,
     },
     {
@@ -49,7 +49,7 @@ const Clients = () => {
       email: "emma@globaltrends.com",
       phone: "+1 (555) 234-5678",
       company: "Global Trends",
-      status: "inactive",
+      status: "inactive" as const, // Type assertion to const
       totalValue: 65000,
     },
     {
@@ -58,7 +58,7 @@ const Clients = () => {
       email: "robert@futuretech.com",
       phone: "+1 (555) 567-8901",
       company: "Future Technologies",
-      status: "lead",
+      status: "lead" as const, // Type assertion to const
       totalValue: 85000,
     },
   ];

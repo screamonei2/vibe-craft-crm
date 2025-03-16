@@ -38,28 +38,28 @@ const Dashboard = () => {
       title: "New client added",
       description: "Sarah Johnson from Acme Corp was added as a new client",
       time: new Date(2023, 5, 12, 14, 32),
-      type: "client",
+      type: "client" as const, // Type assertion to const
     },
     {
       id: 2,
       title: "Deal stage updated",
       description: "TechSolutions deal moved to Negotiation stage",
       time: new Date(2023, 5, 12, 10, 15),
-      type: "deal",
+      type: "deal" as const, // Type assertion to const
     },
     {
       id: 3,
       title: "Task completed",
       description: "Follow-up call with Brian from InnovateCo",
       time: new Date(2023, 5, 11, 16, 45),
-      type: "task",
+      type: "task" as const, // Type assertion to const
     },
     {
       id: 4,
       title: "New message",
       description: "You received a message from Lisa regarding the proposal",
       time: new Date(2023, 5, 11, 11, 25),
-      type: "message",
+      type: "message" as const, // Type assertion to const
     },
   ];
 
@@ -69,28 +69,28 @@ const Dashboard = () => {
       title: "Call with Sarah Johnson from Acme Corp",
       date: new Date(2023, 5, 15, 14, 0),
       completed: false,
-      priority: "high",
+      priority: "high" as const, // Type assertion to const
     },
     {
       id: "task2",
       title: "Send proposal to TechSolutions",
       date: new Date(2023, 5, 16, 12, 0),
       completed: false,
-      priority: "medium",
+      priority: "medium" as const, // Type assertion to const
     },
     {
       id: "task3",
       title: "Follow up with InnovateCo",
       date: new Date(2023, 5, 17, 10, 30),
       completed: false,
-      priority: "low",
+      priority: "low" as const, // Type assertion to const
     },
     {
       id: "task4",
       title: "Prepare presentation for Vision Media",
       date: new Date(2023, 5, 18, 9, 0),
       completed: false,
-      priority: "high",
+      priority: "high" as const, // Type assertion to const
     },
   ];
 
@@ -101,7 +101,7 @@ const Dashboard = () => {
       email: "sarah@acmecorp.com",
       phone: "+1 (555) 123-4567",
       company: "Acme Corporation",
-      status: "active",
+      status: "active" as const, // Type assertion to const
       totalValue: 125000,
     },
     {
@@ -110,7 +110,7 @@ const Dashboard = () => {
       email: "michael@techsolutions.com",
       phone: "+1 (555) 987-6543",
       company: "TechSolutions Inc.",
-      status: "lead",
+      status: "lead" as const, // Type assertion to const
       totalValue: 75000,
     },
     {
@@ -119,7 +119,7 @@ const Dashboard = () => {
       email: "lisa@innovateco.com",
       phone: "+1 (555) 456-7890",
       company: "InnovateCo",
-      status: "active",
+      status: "active" as const, // Type assertion to const
       totalValue: 95000,
     },
   ];
