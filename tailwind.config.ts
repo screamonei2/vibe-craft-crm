@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				mono: ['"Red Hat Mono"', 'monospace'],
+				mono: ['"RED HAT MONO"', 'monospace'],
 				sans: ['Rubik', 'sans-serif'],
 			},
 			colors: {

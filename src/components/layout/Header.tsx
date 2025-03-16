@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -20,11 +20,13 @@ import {
   HelpCircle,
   LogOut,
   BellOff,
-  Check
+  Check,
+  MenuIcon
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Header = () => {
   const [notifications, setNotifications] = useState([
@@ -50,8 +52,15 @@ const Header = () => {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [searchVisible, setSearchVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   const unreadCount = notifications.filter((n) => !n.read).length;
+
+  // Check for dark mode preference on mount
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setIsDarkMode(isDark);
+  }, []);
 
   const markAllAsRead = () => {
     setNotifications(
@@ -63,20 +72,46 @@ const Header = () => {
   };
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // Here you would actually implement the dark mode toggle with a theme context
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    
+    // Actually implement the theme toggle
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  const toggleSidebar = () => {
+    // This will be handled by a state in the Layout component
+    const event = new CustomEvent('toggle-sidebar');
+    window.dispatchEvent(event);
   };
 
   return (
-    <header className="h-16 border-b backdrop-blur-md border-border/40 flex items-center justify-between px-6 bg-background/80 sticky top-0 z-10">
-      <div className={cn("w-1/3 transition-opacity duration-200", 
-                        searchVisible ? "opacity-100" : "opacity-0 md:opacity-100")}>
-        <div className="relative">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search..."
-            className="w-full pl-9 rounded-full bg-secondary border-none focus-visible:ring-1 focus-visible:ring-primary font-mono text-sm"
-          />
+    <header className="h-16 border-b backdrop-blur-md border-border/40 flex items-center justify-between px-4 sm:px-6 bg-background/80 sticky top-0 z-10">
+      <div className="flex items-center">
+        {isMobile && (
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="mr-2" 
+            onClick={toggleSidebar}
+          >
+            <MenuIcon className="h-5 w-5" />
+          </Button>
+        )}
+        
+        <div className={cn("w-full max-w-md transition-opacity duration-200", 
+                          searchVisible ? "opacity-100" : "opacity-0 hidden md:block md:opacity-100")}>
+          <div className="relative">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search..."
+              className="w-full pl-9 rounded-full bg-secondary border-none focus-visible:ring-1 focus-visible:ring-primary font-mono text-sm"
+            />
+          </div>
         </div>
       </div>
 
@@ -94,7 +129,7 @@ const Header = () => {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="hover:bg-primary/10 hover:text-primary"
+          className="hover:bg-primary/10"
           onClick={toggleDarkMode}
         >
           {isDarkMode ? (
@@ -109,7 +144,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="icon" 
-              className="relative hover:bg-primary/10 hover:text-primary"
+              className="relative hover:bg-primary/10"
             >
               <Bell className="h-5 w-5" />
               {unreadCount > 0 && (
@@ -122,7 +157,7 @@ const Header = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent 
-            className="w-80 backdrop-blur-md bg-white/95 dark:bg-black/95" 
+            className="w-72 md:w-80 backdrop-blur-md bg-white/95 dark:bg-black/95" 
             align="end"
           >
             <DropdownMenuLabel className="flex justify-between items-center font-mono">
@@ -131,7 +166,7 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-auto p-0 text-xs text-primary hover:bg-transparent font-mono"
+                  className="h-auto p-0 text-xs hover:bg-transparent font-mono"
                   onClick={markAllAsRead}
                 >
                   <Check className="h-3 w-3 mr-1" />
@@ -165,7 +200,7 @@ const Header = () => {
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="justify-center font-mono text-xs text-primary">
+                <DropdownMenuItem className="justify-center font-mono text-xs">
                   View all notifications
                 </DropdownMenuItem>
               </>

@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=RED+HAT+MONO:wght@400;500;600;700&family=Rubik:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,8 +15,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 355 100% 97%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 240 5% 96%;
     --secondary-foreground: 240 6% 10%;
@@ -25,7 +24,7 @@
     --muted: 240 5% 96%;
     --muted-foreground: 240 4% 46.1%;
 
-    --accent: 191 91% 37%;
+    --accent: 240 5% 15%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,18 +32,18 @@
 
     --border: 240 6% 90%;
     --input: 240 6% 90%;
-    --ring: 262 83% 58%;
+    --ring: 0 0% 0%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 262 83% 98%;
-    --sidebar-foreground: 262 80% 26.1%;
-    --sidebar-primary: 262 83% 58%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 262 30% 95.9%;
-    --sidebar-accent-foreground: 262 50% 30%;
-    --sidebar-border: 262 30% 91%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 90%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 80%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
@@ -57,8 +56,8 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 355 100% 97%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4% 16%;
     --secondary-foreground: 0 0% 98%;
@@ -66,7 +65,7 @@
     --muted: 240 4% 16%;
     --muted-foreground: 240 5% 65.1%;
 
-    --accent: 191 91% 37%;
+    --accent: 240 5% 25%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -74,16 +73,16 @@
 
     --border: 240 4% 16%;
     --input: 240 4% 16%;
-    --ring: 262 83% 58%;
+    --ring: 0 0% 80%;
 
-    --sidebar-background: 262 40% 16%;
-    --sidebar-foreground: 262 80% 95.9%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 262 30% 20%;
-    --sidebar-accent-foreground: 262 50% 95.9%;
-    --sidebar-border: 262 30% 25%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 80%;
   }
 }
 
@@ -98,13 +97,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Red Hat Mono', monospace;
+    font-family: 'RED HAT MONO', monospace;
     font-weight: 600;
     letter-spacing: -0.025em;
   }
 
   button, input, select, textarea {
-    font-family: 'Red Hat Mono', monospace;
+    font-family: 'RED HAT MONO', monospace;
   }
 }
 
